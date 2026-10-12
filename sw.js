@@ -1,4 +1,4 @@
-const C='health-tracker-v1.3.1';
+const C='health-tracker-v1.3.2';
 const A=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==C).map(k=>caches.delete(k)))),self.clients.claim()])));
